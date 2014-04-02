@@ -1,0 +1,3 @@
+Director:
+  rules:
+    'randompicassaimage//$Action/$ID/$Batch': 'PicasaRandomImage_Controller'
