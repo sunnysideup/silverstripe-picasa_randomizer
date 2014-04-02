@@ -13,7 +13,7 @@
 
 class PicasaRandomImage extends DataObject {
 
-	static $db = array(
+	private static $db = array(
 		"URL" => "Text",
 		"DoNotUse" => "Boolean",
 		"Selected" => "Boolean"
@@ -24,30 +24,27 @@ class PicasaRandomImage extends DataObject {
 	 * google username e.g. firstname.lastname (if your email address is firstname.lastname@google.com)
 	 * @var string
 	 */
-	protected static $google_username = '';
-		static  function set_google_username($v) {self::$google_username = $v;}
-		static  function get_google_username() {return self::$google_username;}
+	private static $google_username = '';
 
 	/**
 	 * set to 30 to take one in thirty albums
 	 * set to 1 to take all
 	 * @var Int
 	 */
-	protected static $number_of_folders = 22;
-		static  function set_number_of_folders($i) {self::$number_of_folders = $i;}
-		static  function get_number_of_folders() {return self::$number_of_folders;}
+	private static $number_of_folders = 22;
 
 	/**
 	 * set to 30 to take one in thirty pictures
 	 * set to 1 to add all
 	 * @var Int
 	 */
-	protected static $number_of_images_per_folder = 7;
-		static  function set_number_of_images_per_folder($i) {self::$number_of_images_per_folder = $i;}
-		static  function get_number_of_images_per_folder() {return self::$number_of_images_per_folder;}
+	private static $number_of_images_per_folder = 7;
 
 	public static function get_random_image($width){
-		$objects = DataObject::get("PicasaRandomImage", "\"DoNotUse\" = 0", "RAND()");
+		$objects = PicasaRandomImage::get()->filter(
+			array("DoNotUse" => 0)
+		)
+		->sort("RAND()");
 		if($objects && $obj = $objects->First()) {
 			$obj->URL = str_replace('/s72/', '/s'.$width.'/', $obj->URL);
 			return $obj;
@@ -78,7 +75,10 @@ class PicasaRandomImage extends DataObject {
 						foreach($selectedPictures as $pictureKey) {
 							$picture = $pictures[$pictureKey];
 							$url = $picture["src"];
-							if(!DataObject::get_one("PicasaRandomImage", "PicasaRandomImage.URL = '$url'")) {
+							if($obj = PicasaRandomImage::get()->filter(array("URL" => $url))->first()) {
+								//do nothing
+							}
+							else {
 								$obj = new PicasaRandomImage();
 								$obj->URL = $url;
 								$obj->write();
@@ -153,7 +153,7 @@ class PicasaRandomImage extends DataObject {
 
 class PicasaRandomImage_Controller extends ContentController{
 
-	static $allowed_actions = array(
+	private static $allowed_actions = array(
 		"one" => "ADMIN",
 		"review" => "ADMIN",
 		"donotuse" => "ADMIN",
@@ -182,8 +182,8 @@ class PicasaRandomImage_Controller extends ContentController{
 		if(!$limit) {
 			$limit = 0;
 		}
-		$objects = DataObject::get("PicasaRandomImage", "", "\"PicasaRandomImage\".\"ID\" ASC", null, "$limit, 100");
-		if($objects) {
+		$objects = PicasaRandomImage::get()->sort("ID", "ASC")->limit(100, $limit);
+		if($objects->count()) {
 			foreach($objects as $obj) {
 				$obj->URL = str_replace('/s72/', '/s'.$width.'/', $obj->URL);
 				$style = "";
@@ -245,8 +245,8 @@ class PicasaRandomImage_Controller extends ContentController{
 		if(!$width) {
 			$width = 2400;
 		}
-		$objects = DataObject::get("PicasaRandomImage", "\"DoNotUse\" = 0 AND \"Selected\" = 1");
-		if($objects) {
+		$objects = PicasaRandomImage::get()->filter(array("DoNotUse" => 0, "Selected" => 1));
+		if($objects->count()) {
 			foreach($objects as $obj) {
 				if($obj->URL) {
 					$obj->URL = str_replace('/s72/', '/s'.$width.'/', $obj->URL);
@@ -263,7 +263,7 @@ class PicasaRandomImage_Controller extends ContentController{
 
 	function donotuse($request){
 		$id = intval($request->Param("ID"));
-		if($obj = DataObject::get_by_id("PicasaRandomImage", $id)) {
+		if($obj = PicasaRandomImage::get()->byID($id)) {
 			$obj->DoNotUse = 1;
 			$obj->write();
 			return "deleted";
@@ -272,7 +272,7 @@ class PicasaRandomImage_Controller extends ContentController{
 
 	function select($request){
 		$id = intval($request->Param("ID"));
-		if($obj = DataObject::get_by_id("PicasaRandomImage", $id)) {
+		if($obj = PicasaRandomImage::get()->byID($id)) {
 			$obj->DoNotUse = 0;
 			$obj->Selected = 1;
 			$obj->write();
