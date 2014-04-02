@@ -3,7 +3,7 @@
 	"type": "silverstripe-module",
 	"description": "select random images from the google picasa network",
 	"homepage": "http://www.silverstripe-webdevelopment.com",
-	"keywords": ["picasa_randomizer", "silverstripe"],
+	"keywords": ["picasa_randomizer", "silverstripe", "gallery", "pictures", "photos", "picasa", "google"],
 	"license": "Sunny Side Up (BSD-3-Clause and CUSTOM)",
 	"authors":[
 		{
@@ -15,7 +15,7 @@
 	],
 	"require":{
 		"silverstripe/framework": "~3.1",
-		"silverstripe/cms": "~3.1",
+		"silverstripe/cms": "~3.1"
 	},
 	"extra": {
 		"installer-name": "picasa_randomizer"
