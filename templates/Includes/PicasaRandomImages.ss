@@ -1,7 +1,7 @@
 <% if PicasaRandomImages %>
 <div id="PicasaRandomImages">
-	<% with/loop PicasaRandomImages %>
+	<% loop PicasaRandomImages %>
 		<img src="$ThumbnailURL" alt="$Album - $Title" />
-	<% end_controler %>
+	<% end_loop %>
 </div>
 <% end_if %>

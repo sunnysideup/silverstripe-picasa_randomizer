@@ -63,7 +63,7 @@ class PicasaRandomImage extends DataObject {
 				foreach($selectedAlbums as $albumKey) {
 					$albumTitle = $albums[$albumKey];
 					//google wants only the letters and numbers in the url
-					$albumTitle = ereg_replace("[^A-Za-z0-9]", "", $albumTitle);
+					$albumTitle = preg_replace("[^A-Za-z0-9]", "", $albumTitle);
 					//get the list of pictures from the album
 					$pictures = $this->showAlbumContent(PicasaRandomImage::$google_username, $albumTitle);
 					if(is_array($pictures) && count($pictures)) {
