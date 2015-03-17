@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - PicasaRandomImage</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">PicasaRandomImage</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/code/model/PicasaRandomImage.php.xhtml#line14">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>PicasaRandomImage</h1>
+        <h4>adds pictures from your google picasa account to a data object for random retrieval.</h4>
+        <p>author nicolaas[at]sunnysideup.co.nz<br/>example link: https://picasaweb.google.com/data/feed/api/user/xxx<br/>example link: https://picasaweb.google.com/data/feed/api/user/nfrancken/albumid/5742357499437955281xxxx/<br/>large image: https://lh4.googleusercontent.com/-zs8sog5SG0U/T7DzuF3Lw9I/AAAAAAAAP4E/rPZiGlVL_eY/s2500/IMG_1715.JPG<br/>(Note 2500 as the width!)</p>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class PicasaRandomImage
+                extends <a title="DataObject" href="../classes/DataObject.xhtml">DataObject</a>
+            {<br/><ul class="none"><li>// members</li><li>private array <a href="#members">$db</a>;
+                    </li><li>private string <a href="#members">$google_username</a>;
+                    </li><li>private <span title="Int">Int</span> <a href="#members">$number_of_folders</a>;
+                    </li><li>private <span title="Int">Int</span> <a href="#members">$number_of_images_per_folder</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public static void <a title="PicasaRandomImage" href="../classes/PicasaRandomImage/get_random_image.xhtml">get_random_image</a>()
+                    </li><li>public void <a title="PicasaRandomImage" href="../classes/PicasaRandomImage/requireDefaultRecords.xhtml">requireDefaultRecords</a>()
+                    </li><li>protected void <a title="PicasaRandomImage" href="../classes/PicasaRandomImage/curlit.xhtml">curlit</a>()
+                    </li><li>protected void <a title="PicasaRandomImage" href="../classes/PicasaRandomImage/getAlbums.xhtml">getAlbums</a>()
+                    </li><li>protected void <a title="PicasaRandomImage" href="../classes/PicasaRandomImage/showAlbumContent.xhtml">showAlbumContent</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extends</h4>
+          <ul>
+            <li>
+              <a href="../classes/DataObject.xhtml">DataObject</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>private</h4>
+          <ul class="members">
+            <li id="db">
+              <strong>$db</strong>
+            </li>
+            <li id="google_username"><strong>$google_username</strong>
+                —
+                string<br/><span class="indent">google username e.g. firstname.lastname (if your email address is firstname.lastname@google.com)</span></li>
+            <li id="number_of_folders"><strong>$number_of_folders</strong>
+                —
+                <a href="#">Int</a><br/><span class="indent">set to 30 to take one in thirty albums set to 1 to take all</span></li>
+            <li id="number_of_images_per_folder"><strong>$number_of_images_per_folder</strong>
+                —
+                <a href="#">Int</a><br/><span class="indent">set to 30 to take one in thirty pictures set to 1 to add all</span></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="curlit">
+              <a title="PicasaRandomImage" href="../classes/PicasaRandomImage/curlit.xhtml">curlit()</a>
+            </li>
+            <li id="getAlbums">
+              <a title="PicasaRandomImage" href="../classes/PicasaRandomImage/getAlbums.xhtml">getAlbums()</a>
+            </li>
+            <li id="showAlbumContent">
+              <a title="PicasaRandomImage" href="../classes/PicasaRandomImage/showAlbumContent.xhtml">showAlbumContent()</a>
+            </li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="get_random_image">
+              <a title="PicasaRandomImage" href="../classes/PicasaRandomImage/get_random_image.xhtml">get_random_image()</a>
+            </li>
+            <li id="requireDefaultRecords">
+              <a title="PicasaRandomImage" href="../classes/PicasaRandomImage/requireDefaultRecords.xhtml">requireDefaultRecords()</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span/>
+    </footer>
+  </body>
+</html>

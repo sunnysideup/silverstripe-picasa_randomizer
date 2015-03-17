@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="PicasaRandomImage" namespace="" name="PicasaRandomImage" abstract="false" final="false" start="14" end="151">
+  <file path="/var/www/_modules/picasa_randomizer/trunk/docs/en/phpdox/../../../code/model" file="PicasaRandomImage.php" realpath="/var/www/_modules/picasa_randomizer/trunk/code/model/PicasaRandomImage.php" size="8151" time="2015-03-14T10:23:10+13:00" unixtime="1426281790" sha1="32c2c021b776c06d2130c1f41630c3a767adc5c4" relative="code/model/PicasaRandomImage.php"/>
+  <docblock>
+    <description compact="adds pictures from your google picasa account to a data object for random retrieval.">author nicolaas[at]sunnysideup.co.nz
+example link: https://picasaweb.google.com/data/feed/api/user/xxx
+example link: https://picasaweb.google.com/data/feed/api/user/nfrancken/albumid/5742357499437955281xxxx/
+large image: https://lh4.googleusercontent.com/-zs8sog5SG0U/T7DzuF3Lw9I/AAAAAAAAP4E/rPZiGlVL_eY/s2500/IMG_1715.JPG
+(Note 2500 as the width!)</description>
+  </docblock>
+  <extends full="DataObject" namespace="" name="DataObject"/>
+  <member name="db" type="array" visibility="private" line="16"/>
+  <member name="google_username" type="string" default="''" visibility="private" line="27">
+    <docblock>
+      <description compact="google username e.g. firstname.lastname (if your email address is firstname.lastname@google.com)"/>
+      <var type="string"/>
+    </docblock>
+  </member>
+  <member name="number_of_folders" type="integer" default="22" visibility="private" line="34">
+    <docblock>
+      <description compact="set to 30 to take one in thirty albums set to 1 to take all"/>
+      <var type="object">
+        <type full="Int" namespace="" name="Int"/>
+      </var>
+    </docblock>
+  </member>
+  <member name="number_of_images_per_folder" type="integer" default="7" visibility="private" line="41">
+    <docblock>
+      <description compact="set to 30 to take one in thirty pictures set to 1 to add all"/>
+      <var type="object">
+        <type full="Int" namespace="" name="Int"/>
+      </var>
+    </docblock>
+  </member>
+  <method name="get_random_image" start="43" end="52" abstract="false" final="false" static="true" visibility="public">
+    <parameter name="width" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="requireDefaultRecords" start="54" end="92" abstract="false" final="false" static="false" visibility="public">
+    <inline>
+      <comment value="google wants only the letters and numbers in the url" line="65"/>
+      <comment value="get the list of pictures from the album" line="67"/>
+      <comment value="get a random picture from the album" line="71"/>
+    </inline>
+  </method>
+  <method name="curlit" start="95" end="102" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="url" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="getAlbums" start="105" end="126" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="userId" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="showAlbumContent" start="129" end="148" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="userId" byreference="false" type="{unknown}"/>
+    <parameter name="albumName" byreference="false" type="{unknown}"/>
+  </method>
+</class>
