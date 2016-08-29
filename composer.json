@@ -1,24 +1,29 @@
 {
-	"name": "sunnysideup/picasa_randomizer",
-	"type": "silverstripe-module",
-	"description": "select random images from the google picasa network",
-	"homepage": "http://www.silverstripe-webdevelopment.com",
-	"keywords": ["picasa_randomizer", "silverstripe", "gallery", "pictures", "photos", "picasa", "google"],
-	"license": "Sunny Side Up (BSD-3-Clause and CUSTOM)",
-	"authors":[
-		{
-			"name": "Nicolaas Francken",
-			"homepage": "https://github.com/sunnysideup",
-			"email" : "modules@sunnysideup.co.nz",
-			"role" : "lead developer"
-		}
-	],
-	"require":{
-		"silverstripe/framework": "~3.1",
-		"silverstripe/cms": "~3.1"
-	},
-	"extra": {
-		"installer-name": "picasa_randomizer"
-	}
-
+    "name": "sunnysideup/picasa_randomizer",
+    "type": "silverstripe-module",
+    "description": "select random images from the google picasa network",
+    "keywords": [
+        "picasa_randomizer",
+        "silverstripe",
+        "gallery",
+        "pictures",
+        "photos",
+        "picasa",
+        "google"
+    ],
+    "license": "Sunny Side Up (BSD-3-Clause and CUSTOM)",
+    "authors": [
+        {
+            "name": "Nicolaas Francken",
+            "email": "modules@sunnysideup.co.nz",
+            "role": "lead developer"
+        }
+    ],
+    "require": {
+        "silverstripe/framework": "~3.1",
+        "silverstripe/cms": "~3.1"
+    },
+    "extra": {
+        "installer-name": "picasa_randomizer"
+    }
 }
