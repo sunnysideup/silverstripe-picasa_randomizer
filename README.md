@@ -15,7 +15,7 @@
 
  * [Developer Docs](docs/en/INDEX.md)
  * [User Guide](docs/en/userguide.md)
- * [API](http://ssmods.com/apis/picasa_randomizer/docs/en/api/)
+ * [API Docs](http://docs.ssmods.com/sunnysideup/picasa_randomizer)
 
 ## Requirements
 
