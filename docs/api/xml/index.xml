@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<index xmlns="http://xml.phpdox.net/src" basedir="/var/www/_modules/picasa_randomizer/trunk">
-  <namespace name="">
-    <class name="PicasaRandomImage" src="code/model/PicasaRandomImage.php" description="adds pictures from your google picasa account to a data object for random retrieval." xml="classes/PicasaRandomImage.xml"/>
-    <class name="PicasaRandomImage_Controller" src="code/model/PicasaRandomImage.php" xml="classes/PicasaRandomImage_Controller.xml"/>
-  </namespace>
-</index>
